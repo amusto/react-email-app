@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
@@ -10,6 +11,8 @@ require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
 const app = express(); // Generates a running express app
+
+app.use(bodyParser.json());
 
 app.use(
   cookieSession({
@@ -23,8 +26,24 @@ app.use(passport.session());
 
 app.enable("trust proxy");
 
-require('./routes/commonRoutes')(app);
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
+
+if (process.env.NODE_ENV === 'production') {
+    console.log('Running in Production');
+    // Express will serve up production assets
+    app.use(express.static('client/build'));
+
+    // Express will serve up the index.html file as the default if it can't find it in our route files above
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+
+
+} else {
+    console.log('Running in Development');
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Running app on port: ${PORT}`));
