@@ -3,3 +3,4 @@ config/dev.js
 node_modules
 technotes.txt
 
+/package-lock.json
