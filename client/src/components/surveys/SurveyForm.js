@@ -38,7 +38,7 @@ function validate(values) {
     const errors = {};
 
     // Custom error checks against valid emails
-    errors.emails = validateEmails(values.emails || '');
+    errors.recipients = validateEmails(values.recipients || '');
 
     //TODO: Provide custom error text
     _.each(formFields, ({ name }) => {
