@@ -10,6 +10,7 @@ import formFields from './formFields';
 //TODO: Consider customizing recipients list by using pills for emails? Include a remove X for each pill  - EX: ( johndoe@emaily.com X ) http://materializecss.com/chips.html
 
 class SurveyForm extends Component {
+    // Helper function
     renderFields() {
         return _.map(formFields, ({ label, name }) => {
             return <Field key={name} component={SurveyField} type="text" label={label} name={name} />
