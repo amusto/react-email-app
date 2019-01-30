@@ -1,5 +1,7 @@
 # Example Fullstack application built with React and Node
-Fullstack React App (Mongo, Express, React, Node)
+Fullstack React App (Mongo, Express, React, Node)  
+Simple fullstack application using React, Redux, Node and Express for server side.  
+Using a middleware approach on the Node driven server to manage Google authentication and shopping cart details.
 
 Clone and run npm install in root and client directories  
 Start Local development in terminal with npm run dev (proxy settings control access to front or backend)
