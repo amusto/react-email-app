@@ -1,7 +1,9 @@
-# Example Fullstack application built with React and Node
+# Email Survey application built with React and Node
 Fullstack React App (Mongo, Express, React, Node)  
 Simple fullstack application using React, Redux, Node and Express for server side.  
 Using a middleware approach on the Node driven server to manage Google authentication and shopping cart details.
+
+Create a Survey and enter all content then email it to your list. Users receive the email and can respond. All responses are counted and displayed on the Survey list.
 
 Live Demo on Heroku  
 http://emailsurveys.musto.io  
